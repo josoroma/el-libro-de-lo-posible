@@ -3,6 +3,10 @@
 La Apertura: una religión de los universales, sin misticismo y con la puerta abierta.
 Incluye, como parte del mismo libro, el relato **Los Últimos Universales**.
 
+**▶ Leer en línea: <https://josoroma.github.io/el-libro-de-lo-posible/>**
+([libro completo en una sola página](https://josoroma.github.io/el-libro-de-lo-posible/web/completo.html) ·
+[galería de símbolos](https://josoroma.github.io/el-libro-de-lo-posible/web/simbolos/))
+
 - **36 capítulos** en cuatro partes: *Apertura* (portada), *I · El Libro de lo Posible* (doctrina),
   *II · El Camino Práctico* (ritos, asamblea, calendario) y *III · Los Últimos Universales* (relato).
 - **Lema:** «Nada verdadero exige obediencia; nada posible exige permiso.»
@@ -94,6 +98,27 @@ Los capítulos usan blockquotes marcados, que `build.py` convierte en recuadros:
 
 ## Publicación
 
+**Sitio:** <https://josoroma.github.io/el-libro-de-lo-posible/>
+
+| Sección del sitio | URL |
+|---|---|
+| Lector por capítulos (con audio) | <https://josoroma.github.io/el-libro-de-lo-posible/> |
+| Libro completo en una sola página | <https://josoroma.github.io/el-libro-de-lo-posible/web/completo.html> |
+| Galería de los nueve símbolos | <https://josoroma.github.io/el-libro-de-lo-posible/web/simbolos/> |
+
 El sitio se publica desde la raíz del repositorio: `index.html` redirige a `web/index.html`,
 y todos los recursos usan rutas relativas. No hay dependencias ni proceso de compilación en el
 servidor; el HTML generado se abre tal cual.
+
+Para publicar cambios: `python3 web/build.py`, commit y push a `main`. GitHub Pages reconstruye
+el sitio en unos 60–90 segundos. Si el sitio se crea desde cero:
+
+```bash
+printf '%s' '{"source":{"branch":"main","path":"/"}}' | gh api --method POST repos/josoroma/el-libro-de-lo-posible/pages --input -
+```
+
+Para el `About` del repositorio (ya activado), la URL del sitio se cambia con:
+
+```bash
+gh api --method PATCH repos/josoroma/el-libro-de-lo-posible --field homepage='https://josoroma.github.io/el-libro-de-lo-posible/' --jq .homepage
+```
