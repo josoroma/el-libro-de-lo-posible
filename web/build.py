@@ -484,7 +484,7 @@ def build_completo(chapters, version):
         resumen = f'<p class="capitulo__resumen">{ch["resumen"]}</p>' if ch["resumen"] else ""
         bloques.append(
             f'<article class="lc-cap" id="{ch["slug"]}">'
-            f'<a class="lc-subir" href="#indice-general">↑ Índice</a>'
+            f'<a class="lc-subir" href="#arriba">↑ Índice</a>'
             f"{numero}<h1 class=\"capitulo__titulo\">{ch['titulo']}</h1>{resumen}"
             f'<div class="capitulo__cuerpo">{ch["html"]}</div></article>'
         )
@@ -501,6 +501,7 @@ def build_completo(chapters, version):
         "<style>" + COMPLETO_CSS + "</style>\n"
         "<script>try{document.documentElement.classList.toggle('dark',(localStorage.getItem('apertura.tema')||'oscuro')==='oscuro');}catch(e){}</script>\n"
         "</head>\n<body>\n"
+        '<div id="arriba"></div>\n'
         '<div class="lc-marco">\n'
         '<aside class="lc-lateral">\n'
         '<p class="lc-lateral__marca">La Apertura</p>\n'
@@ -554,6 +555,22 @@ def build_completo(chapters, version):
         "  document.getElementById('imprimir').addEventListener('click', function () { window.print(); });\n"
         "  var g = 'oscuro'; try { g = localStorage.getItem('apertura.tema') || 'oscuro'; } catch (e) {}\n"
         "  pintar(g);\n"
+        "\n"
+        "  // Saltos internos explícitos: en un documento de este largo el salto nativo por\n"
+        "  // fragmento no es fiable en todos los navegadores.\n"
+        "  function irA(id) {\n"
+        "    var d = id ? document.getElementById(id) : null;\n"
+        "    if (!d) return false;\n"
+        "    try { history.pushState(null, '', '#' + id); } catch (e) { location.hash = id; }\n"
+        "    d.scrollIntoView({ block: 'start' });\n"
+        "    return true;\n"
+        "  }\n"
+        "  document.addEventListener('click', function (ev) {\n"
+        "    var a = ev.target && ev.target.closest ? ev.target.closest('a[href^=\"#\"]') : null;\n"
+        "    if (!a) return;\n"
+        "    if (irA(a.getAttribute('href').slice(1))) ev.preventDefault();\n"
+        "  });\n"
+        "  if (location.hash) setTimeout(function () { irA(location.hash.slice(1)); }, 80);\n"
         "})();\n"
         "</script>\n</body>\n</html>\n"
     )
