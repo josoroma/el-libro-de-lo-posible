@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">La Cuenta Abierta: un círculo partido en segmentos, con uno desplazado hacia afuera</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M92 40 A60 60 0 1 1 45 148" />
+    <path d="M45 148 A60 60 0 0 1 92 40" />
+  </g>
+  <path d="M132 34 A60 60 0 0 1 160 68" fill="none" stroke="#8b5cf6" stroke-width="8" stroke-linecap="round" />
+</svg>

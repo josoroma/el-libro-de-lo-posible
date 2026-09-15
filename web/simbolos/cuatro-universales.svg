@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">Los Cuatro Universales: cuatro puntos con tres lados</title>
+  <path d="M50 150 L50 50 L150 50 L150 150" fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <g fill="#8b5cf6">
+    <circle cx="50" cy="50" r="9" />
+    <circle cx="150" cy="50" r="9" />
+    <circle cx="50" cy="150" r="9" />
+    <circle cx="150" cy="150" r="9" />
+  </g>
+</svg>

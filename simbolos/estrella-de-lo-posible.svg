@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">La Estrella de lo Posible: seis brazos y el centro hueco</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M100 60 L100 140" />
+    <path d="M65 80 L135 120" />
+    <path d="M135 80 L65 120" />
+  </g>
+  <circle cx="100" cy="100" r="15" fill="none" stroke="#8b5cf6" stroke-width="6" />
+</svg>

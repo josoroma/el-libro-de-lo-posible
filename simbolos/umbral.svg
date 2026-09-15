@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">El Umbral: un triángulo abierto con un punto más allá del lado ausente</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 46 L44 128" />
+    <path d="M100 46 L156 128" />
+  </g>
+  <circle cx="100" cy="166" r="10" fill="none" stroke="#8b5cf6" stroke-width="6" />
+</svg>

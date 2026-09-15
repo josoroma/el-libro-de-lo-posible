@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">El Andamio: una estructura sin muros que sostiene un espacio vacío</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M52 36 L52 164" />
+    <path d="M148 36 L148 164" />
+    <path d="M52 68 L148 68" />
+    <path d="M52 132 L148 132" />
+  </g>
+  <path d="M52 100 L148 100" fill="none" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round" />
+</svg>

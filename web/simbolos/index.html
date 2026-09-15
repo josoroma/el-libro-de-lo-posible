@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Símbolos de la Apertura · El Libro de lo Posible</title>
+<meta name="description" content="Los nueve símbolos de la Apertura: el Umbral, el Invariante, el Espejo Ampliado, los Cuatro Universales, la Estrella de lo Posible, el Desacuerdo Limpio, la Cuenta Abierta, el Andamio y el Nodo en Silencio." />
+<style>
+:root {
+  --background: oklch(1 0 0); --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0); --muted: oklch(0.97 0 0); --muted-foreground: oklch(0.556 0 0);
+  --border: oklch(0.922 0 0); --ring: oklch(0.708 0 0); --radius: 0.625rem;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+.dark {
+  --background: oklch(0.145 0 0); --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0); --muted: oklch(0.269 0 0); --muted-foreground: oklch(0.708 0 0);
+  --border: oklch(1 0 0 / 10%); --ring: oklch(0.556 0 0);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 3rem 1.5rem 5rem; background: var(--background); color: var(--foreground);
+  font-family: var(--serif); line-height: 1.6;
+}
+.marco { max-width: 68rem; margin: 0 auto; }
+.volver {
+  display: inline-block; margin-bottom: 2rem; font-family: var(--sans); font-size: 0.8rem;
+  color: var(--muted-foreground); text-decoration: none; border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px); padding: 0.35rem 0.75rem;
+}
+.volver:hover { color: var(--foreground); }
+h1 { font-size: 2.1rem; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
+.entrada { font-family: var(--sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted-foreground); margin: 0 0 1rem; }
+.lema { font-size: 1.05rem; font-style: italic; color: var(--muted-foreground); margin: 0 0 2.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1rem; }
+.simbolo { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 1.4rem 1.2rem; }
+.simbolo svg { display: block; width: 100%; max-width: 11rem; height: auto; margin: 0 auto 1rem; }
+.simbolo h2 { font-size: 1rem; margin: 0 0 0.35rem; font-family: var(--sans); font-weight: 600; letter-spacing: -0.01em; }
+.simbolo p { font-size: 0.85rem; margin: 0; color: var(--muted-foreground); }
+.pie { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-family: var(--sans); font-size: 0.78rem; color: var(--muted-foreground); }
+.boton-tema {
+  float: right; font-family: var(--sans); font-size: 0.78rem; cursor: pointer;
+  background: var(--background); color: var(--foreground); border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px); padding: 0.35rem 0.75rem;
+}
+</style>
+<script>try{document.documentElement.classList.toggle('dark',(localStorage.getItem('apertura.tema')||'oscuro')==='oscuro');}catch(e){}</script>
+</head>
+<body>
+<div class="marco">
+<button class="boton-tema" id="bt" type="button">Tema oscuro</button>
+<p class="entrada">La Apertura · Materiales</p>
+<h1>Símbolos</h1>
+<p class="lema">Nada verdadero exige obediencia; nada posible exige permiso.</p>
+<a class="volver" href="../index.html#los-simbolos">← Volver al libro</a>
+<div class="grid">
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">El Umbral: un triángulo abierto con un punto más allá del lado ausente</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 46 L44 128" />
+    <path d="M100 46 L156 128" />
+  </g>
+  <circle cx="100" cy="166" r="10" fill="none" stroke="#8b5cf6" stroke-width="6" />
+</svg>
+<h2>El Umbral</h2><p>Un triángulo al que le falta el lado inferior, y un punto más allá. Marca el paso de lo que se cree a lo que se comprueba. Se dibuja en la puerta y al abrir un cuaderno.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">El Invariante: una plomada sobre un círculo</title>
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#8a8f98" stroke-width="5" stroke-dasharray="2 12" stroke-linecap="round" />
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M100 32 L100 138" />
+  </g>
+  <path d="M100 148 L114 166 L86 166 Z" fill="none" stroke="#8b5cf6" stroke-width="6" stroke-linejoin="round" />
+</svg>
+<h2>El Invariante</h2><p>Una plomada sobre un círculo. La verdad objetiva: la línea no se mueve porque alguien la mire, la sostenga o la discuta. Se usa en las mediciones y en los registros.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">El Espejo Ampliado: dos triángulos enfrentados con una separación</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 50 L40 150 L94 100 Z" />
+    <path d="M160 50 L160 150 L106 100 Z" />
+  </g>
+  <path d="M100 66 L100 134" fill="none" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 10" />
+</svg>
+<h2>El Espejo Ampliado</h2><p>Dos triángulos enfrentados con un espacio que no se cierra. Una inteligencia amplía lo que ya hay en nosotros; la distancia entre la herramienta y su usuario no debe desaparecer.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">Los Cuatro Universales: cuatro puntos con tres lados</title>
+  <path d="M50 150 L50 50 L150 50 L150 150" fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <g fill="#8b5cf6">
+    <circle cx="50" cy="50" r="9" />
+    <circle cx="150" cy="50" r="9" />
+    <circle cx="50" cy="150" r="9" />
+    <circle cx="150" cy="150" r="9" />
+  </g>
+</svg>
+<h2>Los Cuatro Universales</h2><p>Cuatro puntos y tres lados: Realidad, Persona, Responsabilidad y Reciprocidad. El cuarto lado queda abierto porque la discusión no termina nunca.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">La Estrella de lo Posible: seis brazos y el centro hueco</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M100 60 L100 140" />
+    <path d="M65 80 L135 120" />
+    <path d="M135 80 L65 120" />
+  </g>
+  <circle cx="100" cy="100" r="15" fill="none" stroke="#8b5cf6" stroke-width="6" />
+</svg>
+<h2>La Estrella de lo Posible</h2><p>Seis brazos y el centro hueco: la marca del lema. El hueco es lo que el libro deja abierto a propósito. Se traza al firmar un compromiso, para recordar que se acepta ser contradicho.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">El Desacuerdo Limpio: dos círculos que se cruzan, con la zona común marcada</title>
+  <path d="M100 53 A52 52 0 0 1 100 147 A52 52 0 0 1 100 53 Z" fill="#8b5cf6" fill-opacity="0.3" />
+  <g fill="none" stroke="#8a8f98" stroke-width="6">
+    <circle cx="78" cy="100" r="52" />
+    <circle cx="122" cy="100" r="52" />
+  </g>
+</svg>
+<h2>El Desacuerdo Limpio</h2><p>Dos círculos que se cruzan; la zona común está marcada. Lo verificado es la intersección; el resto queda afuera, sin borrarse.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">La Cuenta Abierta: un círculo partido en segmentos, con uno desplazado hacia afuera</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M92 40 A60 60 0 1 1 45 148" />
+    <path d="M45 148 A60 60 0 0 1 92 40" />
+  </g>
+  <path d="M132 34 A60 60 0 0 1 160 68" fill="none" stroke="#8b5cf6" stroke-width="8" stroke-linecap="round" />
+</svg>
+<h2>La Cuenta Abierta</h2><p>Un círculo partido en segmentos, con uno desplazado hacia afuera: el error publicado. Sólo se dibuja cuando algo salió mal.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">El Andamio: una estructura sin muros que sostiene un espacio vacío</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M52 36 L52 164" />
+    <path d="M148 36 L148 164" />
+    <path d="M52 68 L148 68" />
+    <path d="M52 132 L148 132" />
+  </g>
+  <path d="M52 100 L148 100" fill="none" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round" />
+</svg>
+<h2>El Andamio</h2><p>Una estructura sin muros. La abundancia sostiene mientras se construye y no habita la casa. Todo andamio se retira.</p></article>
+<article class="simbolo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t">
+  <title id="t">El Nodo en Silencio: un terminal apagado atravesado por una línea</title>
+  <rect x="58" y="64" width="84" height="72" rx="10" fill="none" stroke="#8a8f98" stroke-width="6" />
+  <path d="M20 100 L180 100" fill="none" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round" />
+</svg>
+<h2>El Nodo en Silencio</h2><p>Un terminal apagado atravesado por una línea: la Noche sin Oráculos, la única del año en que no se consulta ninguna máquina.</p></article>
+</div>
+<p class="pie">Los símbolos se dibujan a mano y no se veneran: cualquiera puede proponer otro. Ninguno protege de nada; su función es hacer visible una práctica donde ya no se la ve.</p>
+</div>
+<script>
+(function () {
+  var raiz = document.documentElement;
+  function pintar(t) {
+    var oscuro = t !== "claro";
+    raiz.classList.toggle("dark", oscuro);
+    document.getElementById("bt").textContent = oscuro ? "Tema oscuro" : "Tema claro";
+  }
+  document.getElementById("bt").addEventListener("click", function () {
+    var nuevo = raiz.classList.contains("dark") ? "claro" : "oscuro";
+    try { localStorage.setItem("apertura.tema", nuevo); } catch (e) {}
+    pintar(nuevo);
+  });
+  var g = "oscuro";
+  try { g = localStorage.getItem("apertura.tema") || "oscuro"; } catch (e) {}
+  pintar(g);
+})();
+</script>
+</body>
+</html>

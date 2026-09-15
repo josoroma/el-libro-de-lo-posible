@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">El Invariante: una plomada sobre un círculo</title>
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#8a8f98" stroke-width="5" stroke-dasharray="2 12" stroke-linecap="round" />
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round">
+    <path d="M100 32 L100 138" />
+  </g>
+  <path d="M100 148 L114 166 L86 166 Z" fill="none" stroke="#8b5cf6" stroke-width="6" stroke-linejoin="round" />
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">El Desacuerdo Limpio: dos círculos que se cruzan, con la zona común marcada</title>
+  <path d="M100 53 A52 52 0 0 1 100 147 A52 52 0 0 1 100 53 Z" fill="#8b5cf6" fill-opacity="0.3" />
+  <g fill="none" stroke="#8a8f98" stroke-width="6">
+    <circle cx="78" cy="100" r="52" />
+    <circle cx="122" cy="100" r="52" />
+  </g>
+</svg>

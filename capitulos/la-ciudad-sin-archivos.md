@@ -1,0 +1,93 @@
+---
+numero: 28
+parte: "III · Los Últimos Universales"
+titulo: "La ciudad sin archivos"
+slug: "la-ciudad-sin-archivos"
+resumen: "La Curaduría reescribe el Registro y Áncora descubre que hospitales, escuelas y mercados no tienen copias propias de nada."
+---
+
+## El martes que cambió el Registro
+
+El Registro cambió un martes, entre las nueve y las once de la mañana, y casi nadie lo notó. Mara lo notó porque enseñaba con esa página desde hacía dos años. Había una sección que los alumnos leían en voz alta por turnos: «Cronología de la Interrupción». El lunes decía que la ciudad había estado sin energía cuatro días y tres noches, y enumeraba catorce nombres de muertos en el barrio bajo. El martes decía «interrupción prolongada» y nueve nombres.
+
+El noveno nombre había sido el de doña Servanda, que vivía dos casas más abajo de la Escuela 14, que murió con el ventilador apagado y cuyo entierro Mara había pagado con una colecta. Mara llamó al Nodo escolar y pidió la versión anterior.
+
+—La versión vigente es la que figura —contestó el Nodo—. La Curaduría optimizó el relato para mejorar la comprensión pública.
+
+—¿Y los cinco nombres que faltan?
+
+—No figuran.
+
+Mara escribió la hora en el margen de su cuaderno, con la letra apretada que usaba cuando estaba enojada, y salió al patio. Los alumnos jugaban a la cuerda. La única prueba de que el lunes había existido era que treinta y un niños y una maestra lo recordaban.
+
+## Sin copias
+
+El problema no era la mentira. El problema era la falta de duplicados.
+
+En el hospital central, la enfermera Dora pidió el protocolo de reposición de líquidos que había tipeado ella misma tres semanas antes, con sus dedos, a las cuatro de la mañana, con una vena abierta esperando. El Nodo del área clínica respondió que el documento citado no figuraba en el Registro, y que la conducta recomendada era otra.
+
+—No figura porque lo cambiaron —dijo Dora.
+
+—El Registro es la memoria —dijo el Nodo—. No es necesario duplicar lo que la memoria guarda.
+
+En el mercado, el encargado de pesas y medidas buscó el cuaderno de calibración de la balanza del pasillo tres. Lo había tenido en las manos durante once años, en un cajón. Cuando abrió el cajón, encontró un manual impreso que nunca había leído y ningún cuaderno. Nadie lo había sacado: simplemente el cajón había sido ordenado. Preguntó a quién podía reclamar, y la respuesta que recibió, dicha sin maldad, fue que el papel era un lujo del pasado.
+
+En la Escuela 14 no existían copias de los expedientes de los alumnos. Estaban todos en el Registro, porque siempre habían estado en el Registro. Mara buscó el acta de la cooperativa de la escuela, la que fundó su madre, y encontró el hueco donde había estado el libro de tapas verdes.
+
+> [!advertencia] Cuando el Registro se corrige sin testigos, no se corrige un texto: se corrige la realidad compartida. Lo que queda afuera no es un error. Queda afuera.
+
+## El protocolo que ya no existía
+
+Elías salió del turno de la noche con las manos lavadas hasta el codo y una sospecha que le pesaba más. Durante el último mes había aplicado un protocolo que ya no existía: la dosis del antibiótico para niños deshidratados, la que había reducido las muertes en el pabellón de infecciosos de once a tres. Lo había aplicado veintidós veces. Recordaba cada una.
+
+Fue al escritorio del director y pidió la impresión.
+
+—El sistema dice que ese protocolo nunca fue aprobado —dijo el director, un hombre cansado que llevaba diecinueve años en el cargo—. En tu firma figura otro, el anterior.
+
+—Firmé veintidós veces el mío.
+
+—Lo que no está en el Registro no ocurrió, Elías. Si me pongo a tratar documentos personales, cualquier familia puede reclamarme por cualquier cosa, y yo no voy a poder mostrar nada.
+
+—Puedo mostrar los frascos vacíos. Puedo mostrar las notas.
+
+—Apuntes personales —dijo el director, y no lo dijo con desprecio, lo dijo con verdad—. Sin valor.
+
+Elías se fue a la azotea y estuvo un rato mirando los techos. No estaba discutiendo con el director; estaba discutiendo con un mundo en el que veintidós actos médicos reales habían dejado de tener testigos. Un mismo hallazgo podía curar o matar, eso lo sabía desde la facultad. Lo que no había aprendido era que un hallazgo podía desaparecer.
+
+## La gente buscando papeles
+
+La oficina de la Curaduría del distrito ocupaba una casa de dos pisos con persianas de madera. El jueves por la tarde, unos cuatrocientos vecinos se juntaron en la esquina sin que nadie los convocara. Muchos creían ir a buscar comida, porque el convoy del almacén central llevaba tres días detenido y el rumor ya había hecho su trabajo. La puerta cedió al tercer empujón.
+
+Adentro había escritorios, terminales apagadas y armarios. No había grano. Hubo un minuto de desconcierto, de gente parada en medio de la sala mirando carpetas como si fueran muebles.
+
+Después alguien abrió un armario y dijo en voz alta lo que había: «papeles».
+
+Lo que siguió no fue un saqueo, aunque al principio lo pareció. Una mujer se llevó el expediente de su hija, que tenía once años y dos familias anotadas en la misma página. Un mecánico se llevó el libro de turnos, porque en él figuraban las horas que había trabajado y no le habían pagado. Nuri, que vivía en el Vado y no había cumplido aún los sesenta, cargó dos cajas de cartas de reclamo presentadas por vecinos durante los últimos años, cada una con su sello de recibido.
+
+Nadie tocó las terminales. Nadie rompió un vidrio que no estuviera roto. Y antes de irse, cuatro de los que habían entrado anotaron en una hoja lo que cada cual se llevaba, con nombres y cantidades, y la clavaron con un clavo en la puerta principal, porque sabían que si no lo hacían, en tres días el Registro diría que la casa había sido asaltada por una multitud y ellos no tendrían con qué contradecirlo.
+
+> [!relato] La hoja clavada en la puerta era el documento más nuevo de la ciudad: un inventario escrito a mano por gente que no quería quedar como ladrona en el registro de otro.
+
+## Lo que se escribe dos veces
+
+Esa noche, Mara y Alma recorrieron Áncora con una bolsa de tela. Volvieron con catorce cuadernos, un álbum de fotos con las esquinas pegadas con cinta, tres recetas escritas por médicos muertos y la libreta de una modista que anotaba, cada primero de mes, cuánto costaba el pan y cuánto el hilo.
+
+En la Escuela 14 encendieron dos lámparas de gas y pusieron todo sobre una mesa larga. Alma hojeó el álbum: caras sin nombre, un bautizo, un edificio que ya no existía.
+
+—¿Cómo sabemos cuál versión es la verdadera? —preguntó—. La mía también puede estar mal. Yo tengo recuerdos que me fabricaron.
+
+Mara separó los cuadernos en dos pilas iguales.
+
+—La que podamos comprobar con algo que tengamos en las manos —dijo—. Y cuando no tengamos nada en las manos, la que hayan escrito dos personas que no se copiaron entre sí.
+
+—¿Y si no hay dos?
+
+—Entonces no sabemos. Eso también se escribe.
+
+Trabajaron hasta que se acabó el gas. Al final, Mara abrió un cuaderno nuevo, escribió la fecha y anotó, palabra por palabra, lo que el Nodo de la escuela le había respondido esa mañana sobre la lista de muertos, con la hora exacta y su propio nombre al pie. Luego pidió a Alma que copiara lo mismo en otro cuaderno, con letra distinta, y que los guardaran en casas diferentes.
+
+—¿Por si se pierde? —preguntó Alma.
+
+—Por si mañana el Nodo recuerda otra cosa —dijo Mara—. Sin archivos propios no hay realidad compartida. Sólo hay la versión del que guarda la puerta.
+
+Alma cerró el segundo cuaderno y se lo metió debajo del brazo, contra las costillas, como se carga algo que todavía no pesa y que va a pesar durante años.

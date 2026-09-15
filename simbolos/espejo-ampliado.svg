@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-labelledby="t">
+  <title id="t">El Espejo Ampliado: dos triángulos enfrentados con una separación</title>
+  <g fill="none" stroke="#8a8f98" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 50 L40 150 L94 100 Z" />
+    <path d="M160 50 L160 150 L106 100 Z" />
+  </g>
+  <path d="M100 66 L100 134" fill="none" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 10" />
+</svg>

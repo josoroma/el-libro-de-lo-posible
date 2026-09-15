@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Libro de lo Posible · La Apertura y el relato de Los Últimos Universales</title>
+  <meta name="description" content="Una religión de los universales: lema, símbolos y ritos de meditación y salud mental; y el relato de «Los Últimos Universales», donde ninguna inteligencia finita tiene derecho a ocupar el lugar de Dios." />
+  <link rel="stylesheet" href="assets/css/estilo.css?v=55c11e25" />
+  <script>document.documentElement.classList.toggle("dark", (localStorage.getItem("apertura.tema") || "oscuro") === "oscuro");</script>
+</head>
+<body>
+
+  <div class="progreso" id="barra-progreso" aria-hidden="true"><div class="progreso__relleno" id="barra-relleno"></div></div>
+
+  <div class="marco">
+    <!-- ═════════ Índice lateral ══════════ -->
+    <aside class="lateral" id="lateral">
+      <header class="lateral__cabecera">
+        <p class="lateral__marca">La Apertura</p>
+        <h1 class="lateral__titulo">El Libro de lo Posible</h1>
+        <p class="lateral__subtitulo">Con el relato <em>Los Últimos Universales</em></p>
+        <p class="lateral__lema">Nada verdadero exige obediencia; nada posible exige permiso.</p>
+      </header>
+
+      <nav class="indice" id="indice" aria-label="Índice de la obra"></nav>
+
+      <footer class="lateral__pie">
+        <button class="boton boton--tema" id="boton-tema" type="button" aria-label="Cambiar tema">
+          <span id="tema-icono">☾</span><span id="tema-texto">Tema oscuro</span>
+        </button>
+        <p class="lateral__nota">Los ritos acompañan; no sustituyen atención profesional de salud mental.</p>
+      </footer>
+    </aside>
+
+    <!-- ══════════ Lector ══════════ -->
+    <main class="lector" id="lector">
+      <button class="boton boton--menu" id="boton-menu" type="button" aria-label="Abrir índice">☰</button>
+
+      <article class="capitulo" id="capitulo">
+        <div class="capitulo__cargando">Cargando…</div>
+      </article>
+
+      <nav class="navegacion" id="navegacion" aria-label="Navegación entre capítulos"></nav>
+    </main>
+  </div>
+
+  <!-- ══════════ Reproductor de audio ══════════ -->
+  <footer class="reproductor" id="reproductor" hidden>
+    <div class="reproductor__meta">
+      <span class="reproductor__etiqueta" id="audio-etiqueta">Escuchando</span>
+      <span class="reproductor__titulo" id="audio-titulo"></span>
+    </div>
+    <button class="reproductor__boton" id="audio-retro" type="button" title="Retroceder 15 s" aria-label="Retroceder 15 segundos">↺15</button>
+    <button class="reproductor__boton reproductor__boton--play" id="audio-play" type="button" title="Reproducir / pausar" aria-label="Reproducir o pausar">▶</button>
+    <button class="reproductor__boton" id="audio-adelante" type="button" title="Avanzar 15 s" aria-label="Avanzar 15 segundos">15</button>
+    <div class="reproductor__pista">
+      <input type="range" id="audio-barra" min="0" max="100" step="0.1" value="0" aria-label="Progreso de la reproducción" />
+      <div class="reproductor__tiempo"><span id="audio-actual">0:00</span> / <span id="audio-total">0:00</span></div>
+    </div>
+    <select class="reproductor__velocidad" id="audio-velocidad" title="Velocidad de reproducción" aria-label="Velocidad de reproducción">
+      <option value="0.75">0.75×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.25">1.25×</option>
+      <option value="1.5">1.5×</option>
+      <option value="2">2×</option>
+    </select>
+    <audio id="audio" preload="metadata"></audio>
+  </footer>
+
+  <div class="velo" id="velo" hidden></div>
+
+  <script src="data/libro.js?v=55c11e25"></script>
+  <script src="assets/js/app.js?v=55c11e25"></script>
+</body>
+</html>
