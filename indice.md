@@ -56,6 +56,7 @@
 ## Materiales
 
 - [Símbolos de la Apertura (SVG)](simbolos/)
+- [Libro completo en una sola página (HTML)](web/completo.html)
 
 ## Obra unificada
 

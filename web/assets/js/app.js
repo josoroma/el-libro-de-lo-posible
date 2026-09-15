@@ -88,7 +88,11 @@
     galeria.className = "indice__item";
     galeria.href = "simbolos/index.html";
     galeria.innerHTML = '<span class="indice__num">✶</span><span>Símbolos de la Apertura</span>';
-    contenedor.append(fragmento, extra, galeria);
+    const completo = document.createElement("a");
+    completo.className = "indice__item";
+    completo.href = "completo.html";
+    completo.innerHTML = '<span class="indice__num">▤</span><span>Libro completo (HTML)</span>';
+    contenedor.append(fragmento, extra, completo, galeria);
     elIndice.appendChild(contenedor);
 
     caja.addEventListener("input", () => {

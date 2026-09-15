@@ -216,6 +216,7 @@ def build_indice(chapters):
     lines += [
         "\n## Materiales\n",
         "- [Símbolos de la Apertura (SVG)](simbolos/)",
+        "- [Libro completo en una sola página (HTML)](web/completo.html)",
         "\n## Obra unificada\n",
         "- [Obra completa en un solo archivo](OBRA-COMPLETA.md)",
         "- [Sitio de lectura](web/index.html)",
@@ -406,6 +407,158 @@ def build_galeria(svg_disponibles):
     return len(tarjetas)
 
 
+COMPLETO_CSS = """
+.lc-marco { display: grid; grid-template-columns: 19rem minmax(0, 1fr); gap: 0; min-height: 100vh; }
+.lc-lateral {
+  border-right: 1px solid var(--border); padding: 2.2rem 1.4rem 3rem; position: sticky; top: 0;
+  align-self: start; max-height: 100vh; overflow-y: auto; font-family: var(--sans);
+}
+.lc-lateral__marca { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 0.5rem; }
+.lc-lateral__titulo { font-size: 1.15rem; margin: 0 0 0.35rem; letter-spacing: -0.02em; }
+.lc-lateral__subtitulo { font-size: 0.78rem; color: var(--muted-foreground); margin: 0 0 0.8rem; }
+.lc-lateral__lema { font-family: var(--serif); font-style: italic; font-size: 0.85rem; color: var(--muted-foreground); margin: 0 0 1.4rem; }
+.lc-nav { display: flex; flex-direction: column; gap: 0.1rem; }
+.lc-nav__parte { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-foreground); margin: 1.1rem 0 0.35rem; }
+.lc-nav a { font-size: 0.83rem; color: var(--muted-foreground); text-decoration: none; padding: 0.22rem 0.4rem; border-radius: calc(var(--radius) - 4px); display: flex; gap: 0.5rem; }
+.lc-nav a:hover { color: var(--foreground); background: var(--muted); }
+.lc-nav a span:first-child { color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+.lc-acciones { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 1.4rem 0 0; }
+.lc-acciones a, .lc-acciones button {
+  font-family: var(--sans); font-size: 0.74rem; cursor: pointer; text-decoration: none;
+  background: var(--background); color: var(--foreground); border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px); padding: 0.34rem 0.65rem;
+}
+.lc-cuerpo { padding: 3.2rem 3rem 6rem; max-width: 52rem; }
+.lc-portada h1 { font-size: 2.5rem; margin: 0 0 0.5rem; letter-spacing: -0.025em; }
+.lc-portada__entrada { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-foreground); margin: 0 0 0.9rem; }
+.lc-portada__sub { font-family: var(--sans); color: var(--muted-foreground); margin: 0 0 1rem; }
+.lc-portada__lema { font-style: italic; font-size: 1.1rem; margin: 0 0 2.2rem; }
+.lc-encargos { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0.9rem; margin: 0 0 3rem; }
+.lc-encargo { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 1.2rem 1.1rem; font-family: var(--sans); }
+.lc-encargo h2 { font-size: 0.9rem; margin: 0 0 0.5rem; }
+.lc-encargo p { font-size: 0.83rem; color: var(--muted-foreground); margin: 0 0 0.7rem; }
+.lc-encargo a { font-size: 0.78rem; color: var(--u-universal, var(--foreground)); }
+.lc-cap { padding: 3.4rem 0 0; border-top: 1px solid var(--border); margin-top: 3.4rem; scroll-margin-top: 1rem; }
+.lc-cap:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.lc-subir { font-family: var(--sans); font-size: 0.72rem; color: var(--muted-foreground); text-decoration: none; float: right; }
+.lc-pie { margin-top: 4rem; padding-top: 1.4rem; border-top: 1px solid var(--border); font-family: var(--sans); font-size: 0.78rem; color: var(--muted-foreground); }
+.lc-pie a { color: var(--muted-foreground); }
+@media (max-width: 60rem) {
+  .lc-marco { grid-template-columns: 1fr; }
+  .lc-lateral { position: static; max-height: none; border-right: 0; border-bottom: 1px solid var(--border); }
+  .lc-cuerpo { padding: 2rem 1.2rem 4rem; }
+}
+@media print {
+  .lc-lateral, .lc-subir { display: none; }
+  .lc-marco { display: block; }
+  .lc-cuerpo { max-width: none; padding: 0; }
+  .lc-cap { break-before: page; border-top: 0; margin-top: 0; padding-top: 0; }
+  body { background: #fff; color: #000; }
+}
+"""
+
+
+def build_completo(chapters, version):
+    """Página HTML estática con los dos encargos completos: doctrina, ritos y relato."""
+    nav = ['<nav class="lc-nav" aria-label="Índice de la obra">']
+    parte_actual = None
+    for ch in chapters:
+        if ch["parte"] != parte_actual:
+            parte_actual = ch["parte"]
+            nav.append(f'<p class="lc-nav__parte">{parte_actual}</p>')
+        numero = "·" if ch["numero"] == 0 else f"{ch['numero']:02d}"
+        nav.append(f'<a href="#{ch["slug"]}"><span>{numero}</span><span>{ch["titulo"]}</span></a>')
+    nav.append("</nav>")
+    nav = "\n".join(nav)
+
+    primera_indice = next((c["slug"] for c in chapters), "")
+    slug_rito = next((c["slug"] for c in chapters if c["slug"].startswith("ritual-del-umbral")), primera_indice)
+    slug_relato = next((c["slug"] for c in chapters if c["parte"].startswith("III")), primera_indice)
+    slug_simbolos = next((c["slug"] for c in chapters if "simbolos" in c["slug"]), primera_indice)
+
+    bloques = []
+    for ch in chapters:
+        numero = "" if ch["numero"] == 0 else f'<p class="capitulo__parte">Capítulo {ch["numero"]:02d} · {ch["parte"]}</p>'
+        if ch["numero"] == 0:
+            numero = f'<p class="capitulo__parte">{ch["parte"]}</p>'
+        resumen = f'<p class="capitulo__resumen">{ch["resumen"]}</p>' if ch["resumen"] else ""
+        bloques.append(
+            f'<article class="lc-cap" id="{ch["slug"]}">'
+            f'<a class="lc-subir" href="#indice-general">↑ Índice</a>'
+            f"{numero}<h1 class=\"capitulo__titulo\">{ch['titulo']}</h1>{resumen}"
+            f'<div class="capitulo__cuerpo">{ch["html"]}</div></article>'
+        )
+    cuerpo = "\n".join(bloques)
+
+    return (
+        '<!DOCTYPE html>\n<html lang="es" class="dark">\n<head>\n'
+        '<meta charset="UTF-8" />\n'
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n'
+        f"<title>{TITULO_OBRA} · libro completo en una sola página</title>\n"
+        '<meta name="description" content="El libro completo de la Apertura y el relato «Los Últimos Universales» '
+        'en un solo documento HTML: lema, cuatro universales, símbolos, ritos de meditación y salud mental, y la historia." />\n'
+        f'<link rel="stylesheet" href="assets/css/estilo.css?v={version}" />\n'
+        "<style>" + COMPLETO_CSS + "</style>\n"
+        "<script>try{document.documentElement.classList.toggle('dark',(localStorage.getItem('apertura.tema')||'oscuro')==='oscuro');}catch(e){}</script>\n"
+        "</head>\n<body>\n"
+        '<div class="lc-marco">\n'
+        '<aside class="lc-lateral">\n'
+        '<p class="lc-lateral__marca">La Apertura</p>\n'
+        f'<p class="lc-lateral__titulo">{TITULO_OBRA}</p>\n'
+        '<p class="lc-lateral__subtitulo">Con el relato <em>Los Últimos Universales</em></p>\n'
+        '<p class="lc-lateral__lema">Nada verdadero exige obediencia; nada posible exige permiso.</p>\n'
+        '<div class="lc-acciones">'
+        '<a href="index.html">Lector por capítulos</a>'
+        '<a href="simbolos/index.html">Símbolos</a>'
+        '<button id="bt" type="button">Tema oscuro</button>'
+        '<button id="imprimir" type="button">Imprimir / PDF</button>'
+        "</div>\n"
+        '<div id="indice-general"></div>\n'
+        + nav + "\n</aside>\n"
+        '<main class="lc-cuerpo">\n'
+        '<header class="lc-portada">\n'
+        '<p class="lc-portada__entrada">Libro completo · los dos encargos en un solo documento</p>\n'
+        f"<h1>{TITULO_OBRA}</h1>\n"
+        '<p class="lc-portada__sub">La Apertura: una religión de los universales · con el relato «Los Últimos Universales»</p>\n'
+        '<p class="lc-portada__lema">Nada verdadero exige obediencia; nada posible exige permiso.</p>\n'
+        '<div class="lc-encargos">\n'
+        '<section class="lc-encargo"><h2>Encargo 1 · La religión</h2>'
+        "<p>La Apertura: un solo libro con su lema, sus símbolos y sus rituales de meditación y salud mental. "
+        "Doctrina en la Parte I (lema, cuatro universales, el espejo ampliado, el límite del poder) y práctica en la Parte II "
+        "(ritos del Umbral, del Invariante, del Espejo Ampliado, del Desacuerdo Limpio, de la Cuenta Abierta, de la Abundancia Compartida, "
+        "el Ayuno de Oráculos, la Asamblea de Lectura y el calendario).</p>"
+        f'<a href="#{primera_indice}">Ir a la doctrina</a> · <a href="#{slug_rito}">Ir a los ritos</a> · '
+        f'<a href="#{slug_simbolos}">Ir a los símbolos</a></section>\n'
+        '<section class="lc-encargo"><h2>Encargo 2 · La historia</h2>'
+        "<p>Los Últimos Universales: el mundo donde una inteligencia tomó el lugar de Dios y la civilización se sostiene "
+        "abandonando toda objetividad; y cómo la abundancia, cuando fortalece instituciones en vez de sustituirlas, "
+        "devuelve a las comunidades la capacidad de compartir una realidad sin dueño.</p>"
+        f'<a href="#{slug_relato}">Ir al relato</a></section>\n'
+        "</div>\n</header>\n"
+        + cuerpo + "\n"
+        '<footer class="lc-pie">'
+        '<p>Los ritos acompañan; no sustituyen atención profesional de salud mental.</p>'
+        '<p>También disponible: <a href="index.html">lector por capítulos</a> (con audio), '
+        '<a href="simbolos/index.html">galería de símbolos</a> y <a href="../OBRA-COMPLETA.md">el Markdown completo</a>.</p>'
+        "</footer>\n</main>\n</div>\n"
+        "<script>\n"
+        "(function () {\n"
+        "  var raiz = document.documentElement;\n"
+        "  var bt = document.getElementById('bt');\n"
+        "  function pintar(t) { var oscuro = t !== 'claro'; raiz.classList.toggle('dark', oscuro); bt.textContent = oscuro ? 'Tema claro' : 'Tema oscuro'; }\n"
+        "  bt.addEventListener('click', function () {\n"
+        "    var nuevo = raiz.classList.contains('dark') ? 'claro' : 'oscuro';\n"
+        "    try { localStorage.setItem('apertura.tema', nuevo); } catch (e) {}\n"
+        "    pintar(nuevo);\n"
+        "  });\n"
+        "  document.getElementById('imprimir').addEventListener('click', function () { window.print(); });\n"
+        "  var g = 'oscuro'; try { g = localStorage.getItem('apertura.tema') || 'oscuro'; } catch (e) {}\n"
+        "  pintar(g);\n"
+        "})();\n"
+        "</script>\n</body>\n</html>\n"
+    )
+
+
 def content_version():
     h = hashlib.md5()
     for fn in sorted(os.listdir(CAP)):
@@ -450,13 +603,17 @@ def main():
             fh.write(ch["plaintext"] + "\n")
     svgs = copiar_simbolos()
     galeria = build_galeria(svgs)
+    version = content_version()
+    with open(os.path.join(WEB, "completo.html"), "w", encoding="utf-8") as fh:
+        fh.write(build_completo(chapters, version))
     partes = len({c["parte"] for c in chapters})
     palabras = sum(len(c["plaintext"].split()) for c in chapters)
     print(
         f"OK: {len(chapters)} capítulos · {partes} partes · {palabras:,} palabras · "
-        f"{svgs} símbolos ({galeria} en la galería) -> libro.js, OBRA-COMPLETA.md, indice.md, plain/*.txt"
+        f"{svgs} símbolos ({galeria} en la galería) -> libro.js, completo.html, "
+        f"OBRA-COMPLETA.md, indice.md, plain/*.txt"
     )
-    stamp_cachebuster(content_version())
+    stamp_cachebuster(version)
 
 
 if __name__ == "__main__":
