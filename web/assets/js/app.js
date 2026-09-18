@@ -122,7 +122,19 @@
   }
 
   // ── Render de capítulo ─────────────────────────────────────────────────
-  function renderCapitulo(slug) {
+  /* Saltar al inicio del capítulo. El documento usa `scroll-behavior: smooth`,
+     que en una página tan larga convierte un salto a la cabecera en una
+     animación eterna; aquí se fuerza el salto seco y se restaura el ajuste. */
+  function irAlInicio() {
+    const raiz = document.documentElement;
+    const previo = raiz.style.scrollBehavior;
+    raiz.style.scrollBehavior = "auto";
+    window.scrollTo(0, 0);
+    raiz.style.scrollBehavior = previo;
+  }
+
+  function renderCapitulo(slug, opciones) {
+    const opts = opciones || {};
     const c = bySlug[slug] || chapters[0];
 
     elCapitulo.innerHTML = "";
@@ -151,15 +163,25 @@
     enlazarInternos();
     prepararAudio(c);
 
-    const estado = leerEstado();
-    const pct = estado.posiciones && estado.posiciones[c.slug];
-    if (pct != null && !sessionStorage.getItem("apertura.saltar-scroll")) {
-      requestAnimationFrame(() => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        window.scrollTo(0, (pct / 100) * max);
-      });
+    /* Desplazamiento al entrar en un capítulo: siempre a la cabecera. La única
+       excepción es reanudar la lectura al abrir el sitio (opts.restaurar), donde
+       se vuelve a la posición recordada del último capítulo leído. */
+    if (opts.restaurar) {
+      const estado = leerEstado();
+      const pct = estado.posiciones && estado.posiciones[c.slug];
+      if (pct != null && pct > 1) {
+        requestAnimationFrame(() => {
+          const max = document.documentElement.scrollHeight - window.innerHeight;
+          const raiz = document.documentElement;
+          const previo = raiz.style.scrollBehavior;
+          raiz.style.scrollBehavior = "auto";
+          window.scrollTo(0, (pct / 100) * max);
+          raiz.style.scrollBehavior = previo;
+        });
+        return;
+      }
     }
-    sessionStorage.removeItem("apertura.saltar-scroll");
+    irAlInicio();
   }
 
   function renderNavegacion(c) {
@@ -207,19 +229,17 @@
     return bySlug[h] ? h : null;
   }
 
-  function navegar(slug, saltarScroll) {
-    if (saltarScroll) sessionStorage.setItem("apertura.saltar-scroll", "1");
-    if (location.hash !== "#" + slug) {
-      location.hash = slug;
-    } else {
-      renderCapitulo(slug);
-    }
-    cerrarMenu();
-  }
+  /* Interruptor de un solo uso: al abrir el sitio sin capítulo en la URL se
+     reanuda la lectura en el punto recordado. Cualquier navegación posterior
+     (índice, Siguiente/Anterior, enlaces internos) abre el capítulo arriba. */
+  let reanudar = false;
 
   function onHash() {
     const s = slugActual();
-    if (s) renderCapitulo(s);
+    if (!s) return;
+    renderCapitulo(s, { restaurar: reanudar });
+    reanudar = false;
+    cerrarMenu();
   }
 
   // ── Progreso de lectura ────────────────────────────────────────────────
@@ -329,10 +349,17 @@
 
   const inicial = slugActual();
   if (inicial) {
+    /* Enlace directo a un capítulo: se abre por su cabecera. */
     renderCapitulo(inicial);
   } else {
     const estado = leerEstado();
     const ultimo = estado.ultimo && bySlug[estado.ultimo] ? estado.ultimo : chapters[0].slug;
-    navegar(ultimo);
+    reanudar = true;
+    if (location.hash !== "#" + ultimo) {
+      location.hash = ultimo; // hashchange -> onHash() reanuda la posición
+    } else {
+      renderCapitulo(ultimo, { restaurar: true });
+      reanudar = false;
+    }
   }
 })();
