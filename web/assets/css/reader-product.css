@@ -1,0 +1,52 @@
+/* Editorial edition: the same ink, paper and botanical accent as the cover. */
+:root {
+  --background: #eeeade; --foreground: #222e25; --card: #e7e4d8;
+  --card-foreground: #222e25; --popover: #eeeade; --popover-foreground: #222e25;
+  --muted: #e4e2d5; --muted-foreground: #62695a; --border: #cccdbd;
+  --primary: #486143; --primary-foreground: #fff; --accent: #dedfce;
+  --input: #cccdbd; --ring: #486143; --radius: 0.25rem;
+  --u-universal: #486143; --u-lema: #856c36; --u-rito: #426a61;
+  --u-apertura: #655e7b; --u-relato: #876347; --u-preguntas: #486143;
+}
+.dark {
+  --background: #111a15; --foreground: #eeeade; --card: #18241c;
+  --card-foreground: #eeeade; --popover: #18241c; --popover-foreground: #eeeade;
+  --muted: #233126; --muted-foreground: #acb5a3; --border: #354234;
+  --primary: #b7c398; --primary-foreground: #111a15; --accent: #273a2a;
+  --input: #354234; --ring: #b7c398;
+  --u-universal: #b7c398; --u-lema: #c5a467; --u-rito: #9ebfb1;
+  --u-apertura: #b8aec6; --u-relato: #c7a184; --u-preguntas: #b7c398;
+}
+.lateral__marca a { color: inherit; text-decoration: none; }
+.lateral__marca a:hover { color: var(--foreground); }
+.lateral__cabecera { padding-bottom: 1.4rem; }
+.capitulo__titulo { font-weight: 400; letter-spacing: -.035em; }
+.capitulo__ilustracion { margin: 1.8rem 0 1.3rem; }
+.capitulo__ilustracion img {
+  display: block; width: 100%; height: clamp(12rem, 30vw, 22rem);
+  object-fit: contain; background: #111613; border: 1px solid var(--border);
+}
+.capitulo__ilustracion figcaption {
+  margin-top: .55rem; font: .67rem/1.5 var(--mono, monospace);
+  color: var(--muted-foreground); letter-spacing: .03em;
+}
+.capitulo__marco-editorial, .capitulo__audio-nota {
+  font: .78rem/1.6 var(--sans); color: var(--muted-foreground);
+  border-left: 2px solid var(--primary); padding: .5rem 0 .5rem 1rem;
+  margin: 1.4rem 0 2rem;
+}
+.capitulo__audio-nota { border-left-color: var(--border); font-size: .72rem; }
+.lc-portada .capitulo__ilustracion img { height: 20rem; }
+.lc-encargo { border-radius: 0; }
+.lc-encargo h2 { color: var(--foreground); }
+.simbolo { border-radius: 0; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  .capitulo__ilustracion { break-inside: avoid; }
+  .capitulo__audio-nota { display: none; }
+}

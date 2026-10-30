@@ -1,13 +1,13 @@
 # El Libro de lo Posible
 
-*La Apertura: una religión de los universales · con el relato «Los Últimos Universales»*
+*Imaginación, filosofía y prácticas para pensar por cuenta propia · con el relato «Los Últimos Universales»*
 
 ## Índice
 
 
 ### Apertura
 
-[El Libro de lo Posible](capitulos/portada.md) — Una religión de los universales: un solo libro, sin misticismo y con la puerta abierta.
+[El Libro de lo Posible](capitulos/portada.md) — Imaginación para abrir posibilidades, filosofía para examinarlas y evidencia para corregir lo que creemos.
 
 ### I · El Libro de lo Posible
 

@@ -19,6 +19,7 @@ import re
 import json
 import shutil
 import hashlib
+from html import escape
 from markdown_it import MarkdownIt
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +32,31 @@ SIMBOLOS = os.path.join(ROOT, "simbolos")
 md = MarkdownIt("default", {"html": True, "typographer": True})
 
 TITULO_OBRA = "El Libro de lo Posible"
-SUBTITULO_OBRA = "La Apertura: una religión de los universales · con el relato «Los Últimos Universales»"
+SUBTITULO_OBRA = "Imaginación, filosofía y prácticas para pensar por cuenta propia · con el relato «Los Últimos Universales»"
+
+PARTES_EDITORIALES = [
+    ("apertura.svg", "Un umbral abierto dentro de una esfera de anillos y líneas de orientación.",
+     "Primero, imaginar. Después, examinar las ideas. La Apertura es la propuesta filosófica de este libro; sus símbolos son metáforas, no pruebas."),
+    ("universales.svg", "Cuatro estructuras geométricas en equilibrio, unidas por un espacio abierto.",
+     "Marco filosófico. Realidad, Persona, Responsabilidad y Reciprocidad expresan los compromisos del libro. Las afirmaciones sobre hechos requieren evidencia; las decisiones éticas requieren argumentos."),
+    ("practica.svg", "Un instrumento de orientación y peldaños abiertos como metáfora de una práctica revisable.",
+     "Prácticas de reflexión. Prueba las preguntas, registra lo que ocurre y cambia lo que no ayude. Estos ejercicios no demuestran una doctrina ni prometen resultados clínicos."),
+    ("ancoro.svg", "Una ciudad imaginada alrededor de un archivo abierto.",
+     "Ficción especulativa. Áncora y sus inteligencias permiten explorar decisiones y consecuencias. El relato no constituye una predicción ni evidencia empírica."),
+]
+
+
+def marco_editorial(numero):
+    return PARTES_EDITORIALES[0 if numero == 0 else 1 if numero <= 12 else 2 if numero <= 21 else 3]
+
+
+def figura_editorial(ch):
+    return (
+        '<figure class="capitulo__ilustracion">'
+        f'<img src="assets/art/{ch["ilustracion"]}" alt="{escape(ch["ilustracion_alt"], quote=True)}" '
+        'width="900" height="700" loading="lazy" />'
+        '<figcaption>Ilustración simbólica · una invitación a imaginar</figcaption></figure>'
+    )
 
 CALLOUT_LABELS = {
     "universal": "Universal",
@@ -170,6 +195,8 @@ def md_to_plaintext(text):
 # Carga de capítulos
 # --------------------------------------------------------------------------- #
 def load_chapters():
+    with open(os.path.join(WEB, "audio-pendiente.json"), encoding="utf-8") as fh:
+        audio_pendiente = set(json.load(fh)["capitulos"])
     files = sorted(f for f in os.listdir(CAP) if f.endswith(".md"))
     chapters = []
     for fn in files:
@@ -193,6 +220,14 @@ def load_chapters():
             "plaintext": md_to_plaintext(body),
             "archivo": fn,
         })
+        ch = chapters[-1]
+        ch["ilustracion"], ch["ilustracion_alt"], ch["marco_editorial"] = marco_editorial(ch["numero"])
+        audio_path = os.path.join(WEB, "assets", "audio", f'{ch["numero"]:02d}-{slug}.mp3')
+        ch["audio_disponible"] = ch["numero"] not in audio_pendiente and os.path.isfile(audio_path)
+        ch["audio_nota"] = (
+            "Audio de esta edición pendiente de actualización. El texto que lees es la versión vigente."
+            if ch["numero"] in audio_pendiente else ""
+        )
     chapters.sort(key=lambda c: c["numero"])
     for i, ch in enumerate(chapters):
         ch["prev"] = chapters[i - 1]["slug"] if i > 0 else None
@@ -260,7 +295,7 @@ def build_libro_js(chapters):
         "titulo": TITULO_OBRA,
         "subtitulo": SUBTITULO_OBRA,
         "chapters": [
-            {k: ch[k] for k in ("numero", "parte", "titulo", "slug", "resumen", "html", "prev", "next")}
+            {k: ch[k] for k in ("numero", "parte", "titulo", "slug", "resumen", "html", "prev", "next", "ilustracion", "ilustracion_alt", "marco_editorial", "audio_disponible", "audio_nota")}
             for ch in chapters
         ],
     }
@@ -378,6 +413,9 @@ def build_galeria(svg_disponibles):
         with open(os.path.join(SIMBOLOS, archivo), encoding="utf-8") as fh:
             svg = fh.read()
         svg = re.sub(r'\swidth="\d+"\sheight="\d+"', "", svg, count=1)
+        # Each inline symbol needs its own accessible-title ID.
+        title_id = "simbolo-" + archivo.removesuffix(".svg")
+        svg = svg.replace('id="t"', f'id="{title_id}"').replace('aria-labelledby="t"', f'aria-labelledby="{title_id}"')
         tarjetas.append(
             f'<article class="simbolo">{svg}<h2>{titulo}</h2><p>{texto}</p></article>'
         )
@@ -388,6 +426,7 @@ def build_galeria(svg_disponibles):
         "<title>Símbolos de la Apertura · El Libro de lo Posible</title>\n"
         "<meta name=\"description\" content=\"Los nueve símbolos de la Apertura: el Umbral, el Invariante, el Espejo Ampliado, los Cuatro Universales, la Estrella de lo Posible, el Desacuerdo Limpio, la Cuenta Abierta, el Andamio y el Nodo en Silencio.\" />\n"
         "<style>" + GALERIA_CSS + "</style>\n"
+        '<link rel="stylesheet" href="../assets/css/reader-product.css" />\n'
         "<script>try{document.documentElement.classList.toggle('dark',(localStorage.getItem('apertura.tema')||'oscuro')==='oscuro');}catch(e){}</script>\n"
         "</head>\n<body>\n<div class=\"marco\">\n"
         "<button class=\"boton-tema\" id=\"bt\" type=\"button\">Tema oscuro</button>\n"
@@ -478,6 +517,7 @@ def build_completo(chapters, version):
 
     bloques = []
     for ch in chapters:
+        ilustracion = figura_editorial(ch) if ch["numero"] in (0, 1, 13, 22) else ""
         numero = "" if ch["numero"] == 0 else f'<p class="capitulo__parte">Capítulo {ch["numero"]:02d} · {ch["parte"]}</p>'
         if ch["numero"] == 0:
             numero = f'<p class="capitulo__parte">{ch["parte"]}</p>'
@@ -486,6 +526,7 @@ def build_completo(chapters, version):
             f'<article class="lc-cap" id="{ch["slug"]}">'
             f'<a class="lc-subir" href="#arriba">↑ Índice</a>'
             f"{numero}<h1 class=\"capitulo__titulo\">{ch['titulo']}</h1>{resumen}"
+            f'{ilustracion}<p class="capitulo__marco-editorial">{ch["marco_editorial"]}</p>'
             f'<div class="capitulo__cuerpo">{ch["html"]}</div></article>'
         )
     cuerpo = "\n".join(bloques)
@@ -495,10 +536,11 @@ def build_completo(chapters, version):
         '<meta charset="UTF-8" />\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n'
         f"<title>{TITULO_OBRA} · libro completo en una sola página</title>\n"
-        '<meta name="description" content="El libro completo de la Apertura y el relato «Los Últimos Universales» '
-        'en un solo documento HTML: lema, cuatro universales, símbolos, ritos de meditación y salud mental, y la historia." />\n'
+        '<meta name="description" content="El Libro de lo Posible en un solo documento: ficción especulativa, '
+        'filosofía y prácticas de reflexión para pensar por cuenta propia en la era de la inteligencia artificial." />\n'
         f'<link rel="stylesheet" href="assets/css/estilo.css?v={version}" />\n'
         "<style>" + COMPLETO_CSS + "</style>\n"
+        f'<link rel="stylesheet" href="assets/css/reader-product.css?v={version}" />\n'
         "<script>try{document.documentElement.classList.toggle('dark',(localStorage.getItem('apertura.tema')||'oscuro')==='oscuro');}catch(e){}</script>\n"
         "</head>\n<body>\n"
         '<div id="arriba"></div>\n'
@@ -509,6 +551,7 @@ def build_completo(chapters, version):
         '<p class="lc-lateral__subtitulo">Con el relato <em>Los Últimos Universales</em></p>\n'
         '<p class="lc-lateral__lema">Nada verdadero exige obediencia; nada posible exige permiso.</p>\n'
         '<div class="lc-acciones">'
+        '<a href="../index.html">← Inicio</a>'
         '<a href="index.html">Lector por capítulos</a>'
         '<a href="simbolos/index.html">Símbolos</a>'
         '<button id="bt" type="button">Tema oscuro</button>'
@@ -518,22 +561,21 @@ def build_completo(chapters, version):
         + nav + "\n</aside>\n"
         '<main class="lc-cuerpo">\n'
         '<header class="lc-portada">\n'
-        '<p class="lc-portada__entrada">Libro completo · los dos encargos en un solo documento</p>\n'
+        '<p class="lc-portada__entrada">Edición completa · una apertura y 35 capítulos</p>\n'
         f"<h1>{TITULO_OBRA}</h1>\n"
-        '<p class="lc-portada__sub">La Apertura: una religión de los universales · con el relato «Los Últimos Universales»</p>\n'
+        '<p class="lc-portada__sub">Imaginación, filosofía y prácticas para pensar por cuenta propia.</p>\n'
         '<p class="lc-portada__lema">Nada verdadero exige obediencia; nada posible exige permiso.</p>\n'
         '<div class="lc-encargos">\n'
-        '<section class="lc-encargo"><h2>Encargo 1 · La religión</h2>'
-        "<p>La Apertura: un solo libro con su lema, sus símbolos y sus rituales de meditación y salud mental. "
-        "Doctrina en la Parte I (lema, cuatro universales, el espejo ampliado, el límite del poder) y práctica en la Parte II "
-        "(ritos del Umbral, del Invariante, del Espejo Ampliado, del Desacuerdo Limpio, de la Cuenta Abierta, de la Abundancia Compartida, "
-        "el Ayuno de Oráculos, la Asamblea de Lectura y el calendario).</p>"
-        f'<a href="#{primera_indice}">Ir a la doctrina</a> · <a href="#{slug_rito}">Ir a los ritos</a> · '
+        '<section class="lc-encargo"><h2>Examinar las ideas · Partes I y II</h2>'
+        "<p>La Apertura propone cuatro compromisos —Realidad, Persona, Responsabilidad y Reciprocidad— "
+        "y nueve prácticas para cuestionar, conversar y rendir cuentas. Son posiciones filosóficas y ejercicios "
+        "de reflexión, abiertos a crítica. Lo que se afirma sobre el mundo debe contrastarse con evidencia.</p>"
+        f'<a href="#{primera_indice}">Leer la apertura</a> · <a href="#{slug_rito}">Probar las prácticas</a> · '
         f'<a href="#{slug_simbolos}">Ir a los símbolos</a></section>\n'
-        '<section class="lc-encargo"><h2>Encargo 2 · La historia</h2>'
-        "<p>Los Últimos Universales: el mundo donde una inteligencia tomó el lugar de Dios y la civilización se sostiene "
-        "abandonando toda objetividad; y cómo la abundancia, cuando fortalece instituciones en vez de sustituirlas, "
-        "devuelve a las comunidades la capacidad de compartir una realidad sin dueño.</p>"
+        '<section class="lc-encargo"><h2>Imaginar primero · Parte III</h2>'
+        "<p>Los Últimos Universales lleva estas preguntas a Áncora, una ciudad que delegó sus decisiones en "
+        "una inteligencia. Una historia sobre memoria, poder y la capacidad de volver a preguntar. "
+        "La ficción abre posibilidades; no demuestra que ese futuro vaya a ocurrir.</p>"
         f'<a href="#{slug_relato}">Ir al relato</a></section>\n'
         "</div>\n</header>\n"
         + cuerpo + "\n"
@@ -582,7 +624,7 @@ def content_version():
         if fn.endswith(".md"):
             with open(os.path.join(CAP, fn), "rb") as fh:
                 h.update(b"cap:" + fh.read())
-    for rel in ("assets/js/app.js", "assets/css/estilo.css"):
+    for rel in ("assets/js/app.js", "assets/css/estilo.css", "assets/css/reader-product.css", "audio-pendiente.json"):
         p = os.path.join(WEB, rel)
         if os.path.isfile(p):
             with open(p, "rb") as fh:
@@ -595,7 +637,7 @@ def stamp_cachebuster(version):
     with open(idx, encoding="utf-8") as fh:
         html = fh.read()
     html = re.sub(
-        r'(assets/css/estilo\.css|data/libro\.js|assets/js/app\.js)(\?v=[^"\']*)?',
+        r'(assets/css/estilo\.css|assets/css/reader-product\.css|data/libro\.js|assets/js/app\.js)(\?v=[^"\']*)?',
         lambda m: m.group(1) + "?v=" + version,
         html,
     )

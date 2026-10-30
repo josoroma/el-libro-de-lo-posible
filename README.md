@@ -1,51 +1,98 @@
 # El Libro de lo Posible
 
-La Apertura: una religión de los universales, sin misticismo y con la puerta abierta.
-Incluye, como parte del mismo libro, el relato **Los Últimos Universales**.
+![El Libro de lo Posible: imaginación primero, filosofía después](web/assets/art/cover.svg)
 
-**▶ Leer en línea: <https://josoroma.github.io/el-libro-de-lo-posible/>**
-([libro completo en una sola página](https://josoroma.github.io/el-libro-de-lo-posible/web/completo.html) ·
-[galería de símbolos](https://josoroma.github.io/el-libro-de-lo-posible/web/simbolos/))
+**Imagina otros futuros. Aprende a discutirlos.**
 
-- **36 capítulos** en cuatro partes: *Apertura* (portada), *I · El Libro de lo Posible* (doctrina),
-  *II · El Camino Práctico* (ritos, asamblea, calendario) y *III · Los Últimos Universales* (relato).
-- **Lema:** «Nada verdadero exige obediencia; nada posible exige permiso.»
-- **Cuatro universales:** Realidad, Persona, Responsabilidad, Reciprocidad.
-- **Nueve símbolos** dibujados en SVG, con su significado y su uso.
+Un libro interactivo en español para pensar por cuenta propia en la era de las inteligencias artificiales. Combina una ficción sobre una ciudad que dejó de preguntar, una propuesta filosófica y prácticas para tomar decisiones sin entregar el criterio a un oráculo.
 
-## Estructura
+[**Explorar el libro →**](https://josoroma.github.io/el-libro-de-lo-posible/) · [Leer el relato](web/index.html#el-dia-en-que-dejamos-de-preguntar) · [Descargar la edición](releases/el-libro-de-lo-posible.zip)
 
-```
-capitulos/           # fuente: un archivo Markdown por capítulo, con frontmatter YAML
-simbolos/            # los nueve símbolos en SVG (fuente)
-web/                 # lector: sitio estático listo para GitHub Pages
-  build.py           # compila los capítulos -> libro.js, OBRA-COMPLETA.md, indice.md, plain/
-  generar_audio.py   # audio por capítulo (edge-tts, voz es-MX-DaliaNeural)
-  index.html         # lector de página única, tema oscuro por defecto
-  completo.html      # generado: el libro entero (los dos encargos) en una sola página HTML
-  assets/css/estilo.css
-  assets/js/app.js
-  data/              # generado: libro.js + plain/*.txt (insumo del audio)
-  simbolos/          # generado: copia de los SVG + galería
-  assets/audio/      # generado: un mp3 por capítulo
-index.html           # redirección a web/index.html (raíz del sitio)
-OBRA-COMPLETA.md     # generado: el libro completo en un solo Markdown
-indice.md            # generado: índice con resúmenes
-```
+> Nada verdadero exige obediencia; nada posible exige permiso.
 
-## Compilar
+## La idea
+
+Tenemos herramientas que responden cada vez más preguntas. Este libro explora cómo conservar la capacidad de formular las nuestras, contrastar las respuestas y asumir lo que decidimos.
+
+La experiencia empieza por la imaginación: una puerta, un símbolo, un futuro posible. Después vienen las preguntas filosóficas. Cuando una idea afirma algo sobre el mundo, pide evidencia. La estética puede ser esotérica; el criterio para aceptar una explicación sigue siendo racional.
+
+**No saber es un punto de partida, no una prueba de lo sobrenatural.** Hay espacio para la metafísica como exploración abierta, con sus supuestos a la vista. Una ficción no demuestra una predicción; una elección moral no se convierte en ley natural por llamarla universal.
+
+## Para quién
+
+- Lectores de ciencia ficción que quieren discutir las ideas detrás de la historia.
+- Personas que crean o utilizan inteligencia artificial y quieren examinar el poder que le delegan.
+- Grupos de lectura que buscan preguntas, desacuerdos claros y prácticas que puedan revisar juntos.
+
+## Empieza por una experiencia
+
+| Si quieres… | Empieza aquí | Qué encontrarás |
+|---|---|---|
+| Imaginar un mundo diferente | [Los Últimos Universales](web/index.html#el-dia-en-que-dejamos-de-preguntar) | Áncora confió sus decisiones a una inteligencia. Algunas personas vuelven a preguntar. |
+| Examinar los argumentos | [Los cuatro universales](web/index.html#los-cuatro-universales) | Realidad, Persona, Responsabilidad y Reciprocidad como marco filosófico y ético. |
+| Probar una práctica | [Ritual del Umbral](web/index.html#ritual-del-umbral) | Separar lo observado, lo supuesto y lo desconocido antes de decidir. |
+| Explorar el límite del conocimiento | [Lo que este libro no decide](web/index.html#lo-que-el-libro-no-decide) | Metafísica abierta y una distinción explícita entre incertidumbre y explicación. |
+| Llevarlo a una conversación | [La Asamblea de Lectura](web/index.html#la-asamblea-de-lectura) | Una lectura compartida donde nadie posee la interpretación. |
+
+## Qué incluye
+
+**Una portada y 35 capítulos, organizados en tres partes:**
+
+| Parte | Capítulos | Función |
+|---|---|---|
+| I · El Libro de lo Posible | 01–12 | La propuesta: cuatro universales, límites del poder, instituciones y apertura metafísica. |
+| II · El Camino Práctico | 13–21 | Siete prácticas, una asamblea y un calendario para volver a lo que importa. |
+| III · Los Últimos Universales | 22–35 | El relato de Áncora, sus inteligencias y las personas que recuperan la costumbre de comprobar. |
+
+La portada es la entrada 00. El [índice completo](indice.md) enlaza las 36 entradas y sus resúmenes.
+
+La edición reúne una página de presentación con un laboratorio interactivo de ideas, ilustraciones por sección, nueve símbolos originales en SVG y varias formas de leer. No hace falta una cuenta.
+
+| Formato | Archivo | Uso |
+|---|---|---|
+| Presentación interactiva | [index.html](index.html) | Descubrir el libro, explorar sus ideas y elegir una ruta de lectura. |
+| Lector por capítulos | [web/index.html](web/index.html) | Índice, búsqueda, progreso, tema claro/oscuro y audio disponible por capítulo. |
+| Libro completo | [web/completo.html](web/completo.html) | Leer sin JavaScript, imprimir o guardar como PDF desde el navegador. |
+| Texto editable | [OBRA-COMPLETA.md](OBRA-COMPLETA.md) | La obra unificada en Markdown. |
+| Galería | [web/simbolos/index.html](web/simbolos/index.html) | Los nueve símbolos y su significado. |
+| Edición descargable | [el-libro-de-lo-posible.zip](releases/el-libro-de-lo-posible.zip) | Sitio, texto, ilustraciones, símbolos y fuentes para abrirlos localmente; sin MP3. |
+
+Los símbolos son recursos de imaginación y memoria. No representan fuerzas ocultas ni se presentan como evidencia. Las prácticas son ejercicios de reflexión, no tratamientos clínicos.
+
+El ZIP es una edición ligera de texto e imágenes. El lector incluido desactiva el audio para no pedir archivos ausentes. Una vez extraído, «Descargar el libro» ofrece el Markdown; en el sitio publicado ofrece el ZIP.
+
+## Abrir localmente
+
+Abre `index.html` para explorar la presentación o `web/completo.html` para leer todo el texto. El lector carga sus capítulos mediante `web/data/libro.js`, sin `fetch`, para conservar la lectura desde disco.
+
+También puedes servir la carpeta con Python:
 
 ```bash
-python3 web/build.py          # capítulos -> lector + obra completa + texto plano
-python3 web/generar_audio.py  # audio de los capítulos que falten
-python3 web/generar_audio.py --desde 13 --hasta 21 --force
+python3 -m http.server 8000
 ```
 
-`build.py` no edita nada a mano: `OBRA-COMPLETA.md`, `indice.md`, `web/data/libro.js`,
-`web/data/plain/` y `web/simbolos/index.html` se regeneran siempre. Para cambiar el texto,
-se editan los archivos de `capitulos/`, que es la única fuente.
+Abre <http://localhost:8000>. No hay un servidor de aplicación, registro de usuarios ni instalación de paquetes necesaria para leer la edición generada.
 
-## Frontmatter de un capítulo
+## Editar y compilar
+
+Los archivos de `capitulos/` son la fuente del texto. Para reconstruir los formatos de lectura necesitas Python 3 y `markdown-it-py`:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python web/build.py
+```
+
+El build actualiza `OBRA-COMPLETA.md`, `indice.md`, `web/data/libro.js`, `web/data/plain/`, `web/completo.html` y la galería de símbolos. También copia los SVG de `simbolos/` y actualiza las versiones de recursos del lector. Edita las fuentes, no estos archivos generados.
+
+Para crear el paquete descargable después de compilar:
+
+```bash
+python3 scripts/package.py
+```
+
+### Añadir o cambiar un capítulo
 
 ```yaml
 ---
@@ -53,72 +100,76 @@ numero: 13
 parte: "II · El Camino Práctico"
 titulo: "Ritual del Umbral"
 slug: "ritual-del-umbral"
-resumen: "Una frase que aparece en el índice y en la cabecera del capítulo."
+resumen: "Una frase para el índice y la cabecera del capítulo."
 ---
 ```
 
-El nombre del archivo debe ser `<slug>.md` (o `NN-<slug>.md` con el mismo número del frontmatter).
-Los capítulos se ordenan por `numero`.
+El nombre debe ser `<slug>.md` o `NN-<slug>.md`. El número determina el orden. Conserva los slugs existentes para mantener los enlaces compartidos.
 
-## Formatos del sitio
+Los recuadros del texto admiten `> [!lema]`, `> [!universal]`, `> [!rito]`, `> [!apertura]`, `> [!advertencia]`, `> [!relato]` y `> [!preguntas]`.
 
-| Ruta | Formato | Contenido |
-|---|---|---|
-| `web/index.html` | SPA (JavaScript) | lector por capítulos, con índice, buscador y audio |
-| `web/completo.html` | **HTML estático** | el libro completo en una sola página (los dos encargos), con índice por anclas e «Imprimir / PDF» |
-| `web/simbolos/index.html` | HTML estático | galería de los nueve símbolos |
-| `OBRA-COMPLETA.md` | Markdown | la obra unificada, sin dependencias |
+### Audio opcional
 
-`completo.html` no necesita JavaScript para mostrar el texto: lo único que usa script es el
-conmutador de tema y el botón de impresión. Por eso sirve también sin conexión y para imprimir o
-exportar a PDF desde el navegador.
+Los MP3 son narraciones generadas con `edge-tts`. Regenerarlos requiere conexión y envía el texto del capítulo al servicio de síntesis de voz. No hace falta regenerarlos para leer el libro.
 
-## Lector
-
-- Tema **shadcn «luma»**, oscuro por defecto y claro a un clic; la preferencia se guarda en el navegador
-  y se comparte entre el lector, el libro completo y la galería.
-- Índice lateral agrupado por partes, buscador de capítulos, enrutado por hash (enlaces compartibles),
-  barra de progreso de lectura, navegación anterior/siguiente y reproductor de audio por capítulo.
-- Funciona abierto directamente desde el disco (`file://`) porque el contenido se carga por
-  `<script src="data/libro.js">` y no por `fetch`.
-
-## Callouts
-
-Los capítulos usan blockquotes marcados, que `build.py` convierte en recuadros:
-
-| Marca | Rótulo |
-|---|---|
-| `> [!lema]` | Lema |
-| `> [!universal]` | Universal |
-| `> [!rito]` | Rito |
-| `> [!apertura]` | Lo que queda abierto |
-| `> [!advertencia]` | Advertencia |
-| `> [!relato]` | Del relato |
-| `> [!preguntas]` | Preguntas de la asamblea |
-
-## Publicación
-
-**Sitio:** <https://josoroma.github.io/el-libro-de-lo-posible/>
-
-| Sección del sitio | URL |
-|---|---|
-| Lector por capítulos (con audio) | <https://josoroma.github.io/el-libro-de-lo-posible/> |
-| Libro completo en una sola página | <https://josoroma.github.io/el-libro-de-lo-posible/web/completo.html> |
-| Galería de los nueve símbolos | <https://josoroma.github.io/el-libro-de-lo-posible/web/simbolos/> |
-
-El sitio se publica desde la raíz del repositorio: `index.html` redirige a `web/index.html`,
-y todos los recursos usan rutas relativas. No hay dependencias ni proceso de compilación en el
-servidor; el HTML generado se abre tal cual.
-
-Para publicar cambios: `python3 web/build.py`, commit y push a `main`. GitHub Pages reconstruye
-el sitio en unos 60–90 segundos. Si el sitio se crea desde cero:
+En el sitio, los capítulos 00, 02 y 08 muestran su versión revisada en texto y tienen el audio desactivado hasta regenerar esas narraciones. El paquete ZIP no incluye grabaciones.
 
 ```bash
-printf '%s' '{"source":{"branch":"main","path":"/"}}' | gh api --method POST repos/josoroma/el-libro-de-lo-posible/pages --input -
+python -m pip install edge-tts
+python web/generar_audio.py
+python web/generar_audio.py --solo 13 --force
 ```
 
-Para el `About` del repositorio (ya activado), la URL del sitio se cambia con:
+La generación omite los MP3 existentes salvo que se use `--force`. Después de cambiar un capítulo, su grabación anterior debe identificarse como una edición previa o regenerarse antes de presentarla como narración del texto nuevo.
+
+## Estructura
+
+```text
+index.html                 Presentación del producto
+README.md                  Esta guía
+capitulos/                 Texto fuente con frontmatter
+simbolos/                  Nueve símbolos SVG originales
+web/
+  index.html               Lector por capítulos
+  completo.html            Libro entero, generado
+  build.py                 Compilador del texto
+  generar_audio.py         Generación opcional de voz
+  assets/                  Estilos, scripts, imágenes y audio
+  data/                    Capítulos y texto plano generados
+  simbolos/                Galería y copias de los símbolos
+scripts/package.py         Empaquetado de la edición
+releases/                  ZIP descargable
+OBRA-COMPLETA.md            Obra unificada, generada
+indice.md                  Índice, generado
+```
+
+## Diseño y método
+
+La presentación sigue el enfoque de libro interactivo de [Taster](https://github.com/josoroma/taster), disponible en este entorno en `/Users/josoroma/sites/taster`: una idea visible, una acción del lector, una consecuencia que se puede examinar y una versión legible del contenido. Los archivos entregados funcionan sin acceder a esa carpeta.
+
+La animación SVG usa una adaptación de `createTransport` de `kit/motion.mjs`, copiada desde Taster con su [licencia MIT](web/assets/vendor/TASTER-LICENSE.txt). No depende del repositorio original en tiempo de ejecución.
+
+El lenguaje visual combina geometría simbólica, espacio, luz y movimiento contenido. La animación acompaña la lectura y respeta la preferencia de movimiento reducido. La distinción editorial es constante: **imaginar, argumentar y comprobar son tareas relacionadas, con criterios diferentes**.
+
+## Verificar la edición
 
 ```bash
-gh api --method PATCH repos/josoroma/el-libro-de-lo-posible --field homepage='https://josoroma.github.io/el-libro-de-lo-posible/' --jq .homepage
+python3 scripts/check-content.py
 ```
+
+Comprueba enlaces y capítulos tanto en el sitio como después de extraer el ZIP, ilustraciones, disponibilidad de audio e integridad del archivo.
+
+Para ejecutar las comprobaciones de interacción del DOM (opcional; Node.js moderno):
+
+```bash
+npm install --prefix .qa --no-save jsdom@30.1.3
+NODE_PATH=.qa/node_modules node scripts/check-interactions.cjs
+```
+
+Estas comprobaciones no sustituyen una revisión visual en navegador. La [nota de edición](docs/edicion.md) documenta fuentes, alcance y verificación.
+
+## Publicación en GitHub Pages
+
+La raíz del repositorio es el sitio estático: `index.html` presenta el libro y `web/` conserva el lector y el resto de la edición. Todas las rutas internas son relativas, de modo que funcionan bajo `/el-libro-de-lo-posible/`.
+
+Tras compilar y empaquetar, los archivos pueden publicarse desde la rama y carpeta configuradas en GitHub Pages. La URL del proyecto es <https://josoroma.github.io/el-libro-de-lo-posible/>. Generar el sitio localmente no publica los cambios; el despliegue depende de actualizar el repositorio y de su configuración de Pages.

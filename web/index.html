@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>El Libro de lo Posible · La Apertura y el relato de Los Últimos Universales</title>
-  <meta name="description" content="Una religión de los universales: lema, símbolos y ritos de meditación y salud mental; y el relato de «Los Últimos Universales», donde ninguna inteligencia finita tiene derecho a ocupar el lugar de Dios." />
-  <link rel="stylesheet" href="assets/css/estilo.css?v=78a90705" />
-  <script>document.documentElement.classList.toggle("dark", (localStorage.getItem("apertura.tema") || "oscuro") === "oscuro");</script>
+  <meta name="description" content="Una novela, un marco filosófico y prácticas de reflexión para pensar por cuenta propia en la era de la inteligencia artificial. Lee El Libro de lo Posible." />
+  <link rel="stylesheet" href="assets/css/estilo.css?v=46ac8182" />
+  <link rel="stylesheet" href="assets/css/reader-product.css?v=46ac8182" />
+  <link rel="icon" href="../simbolos/estrella-de-lo-posible.svg" type="image/svg+xml" />
+  <script>try { document.documentElement.classList.toggle("dark", (localStorage.getItem("apertura.tema") || "oscuro") === "oscuro"); } catch (e) {}</script>
 </head>
 <body>
 
@@ -16,7 +18,7 @@
     <!-- ═════════ Índice lateral ══════════ -->
     <aside class="lateral" id="lateral">
       <header class="lateral__cabecera">
-        <p class="lateral__marca">La Apertura</p>
+        <p class="lateral__marca"><a href="../index.html">← El Libro de lo Posible · Inicio</a></p>
         <h1 class="lateral__titulo">El Libro de lo Posible</h1>
         <p class="lateral__subtitulo">Con el relato <em>Los Últimos Universales</em></p>
         <p class="lateral__lema">Nada verdadero exige obediencia; nada posible exige permiso.</p>
@@ -34,10 +36,11 @@
 
     <!-- ══════════ Lector ══════════ -->
     <main class="lector" id="lector">
-      <button class="boton boton--menu" id="boton-menu" type="button" aria-label="Abrir índice">☰</button>
+      <button class="boton boton--menu" id="boton-menu" type="button" aria-label="Abrir índice" aria-controls="lateral" aria-expanded="false">☰</button>
 
-      <article class="capitulo" id="capitulo">
+      <article class="capitulo" id="capitulo" tabindex="-1">
         <div class="capitulo__cargando">Cargando…</div>
+        <noscript><p>Lee la <a href="completo.html">edición completa en HTML</a>, que funciona sin JavaScript.</p></noscript>
       </article>
 
       <nav class="navegacion" id="navegacion" aria-label="Navegación entre capítulos"></nav>
@@ -69,7 +72,7 @@
 
   <div class="velo" id="velo" hidden></div>
 
-  <script src="data/libro.js?v=78a90705"></script>
-  <script src="assets/js/app.js?v=78a90705"></script>
+  <script src="data/libro.js?v=46ac8182"></script>
+  <script src="assets/js/app.js?v=46ac8182"></script>
 </body>
 </html>

@@ -155,6 +155,31 @@
       resumen.textContent = c.resumen;
       elCapitulo.append(resumen);
     }
+    if (c.ilustracion) {
+      const figura = document.createElement("figure");
+      figura.className = "capitulo__ilustracion";
+      const imagen = document.createElement("img");
+      imagen.src = "assets/art/" + c.ilustracion;
+      imagen.alt = c.ilustracion_alt;
+      imagen.width = 900;
+      imagen.height = 700;
+      const pie = document.createElement("figcaption");
+      pie.textContent = "Ilustración simbólica · una invitación a imaginar";
+      figura.append(imagen, pie);
+      elCapitulo.append(figura);
+    }
+    if (c.marco_editorial) {
+      const marco = document.createElement("p");
+      marco.className = "capitulo__marco-editorial";
+      marco.textContent = c.marco_editorial;
+      elCapitulo.append(marco);
+    }
+    if (c.audio_nota) {
+      const nota = document.createElement("p");
+      nota.className = "capitulo__audio-nota";
+      nota.textContent = c.audio_nota;
+      elCapitulo.append(nota);
+    }
     elCapitulo.append(cuerpo);
 
     marcarActivo(c.slug);
@@ -237,9 +262,11 @@
   function onHash() {
     const s = slugActual();
     if (!s) return;
+    const menuEstabaAbierto = document.body.classList.contains("menu-abierto");
     renderCapitulo(s, { restaurar: reanudar });
     reanudar = false;
     cerrarMenu();
+    if (menuEstabaAbierto) elCapitulo.focus({ preventScroll: true });
   }
 
   // ── Progreso de lectura ────────────────────────────────────────────────
@@ -264,10 +291,50 @@
   }, { passive: true });
 
   // ── Menú móvil ─────────────────────────────────────────────────────────
-  function abrirMenu() { document.body.classList.add("menu-abierto"); elVelo.hidden = false; }
-  function cerrarMenu() { document.body.classList.remove("menu-abierto"); elVelo.hidden = true; }
+  function abrirMenu() {
+    document.body.classList.add("menu-abierto");
+    elVelo.hidden = false;
+    $("#boton-menu").setAttribute("aria-expanded", "true");
+    $("#lateral").setAttribute("role", "dialog");
+    $("#lateral").setAttribute("aria-modal", "true");
+    $("#lateral").setAttribute("aria-label", "Índice de la obra");
+    $("#lector").inert = true;
+    elReproductor.inert = true;
+    $("#buscador").focus();
+  }
+  function cerrarMenu() {
+    document.body.classList.remove("menu-abierto");
+    elVelo.hidden = true;
+    $("#boton-menu").setAttribute("aria-expanded", "false");
+    ["role", "aria-modal", "aria-label"].forEach((name) => $("#lateral").removeAttribute(name));
+    $("#lector").inert = false;
+    elReproductor.inert = false;
+  }
   $("#boton-menu").addEventListener("click", abrirMenu);
-  elVelo.addEventListener("click", cerrarMenu);
+  elIndice.addEventListener("click", (event) => {
+    const link = event.target.closest("a[data-slug]");
+    if (link && link.dataset.slug === slugActual() && document.body.classList.contains("menu-abierto")) {
+      cerrarMenu();
+      elCapitulo.focus({ preventScroll: true });
+    }
+  });
+  elVelo.addEventListener("click", () => { cerrarMenu(); $("#boton-menu").focus(); });
+  document.addEventListener("keydown", (event) => {
+    if (!document.body.classList.contains("menu-abierto")) return;
+    if (event.key === "Escape") {
+      cerrarMenu();
+      $("#boton-menu").focus();
+    }
+    if (event.key === "Tab") {
+      const focusables = [...$("#lateral").querySelectorAll('a[href], button, input')]
+        .filter((element) => element.getClientRects().length && !element.disabled);
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+  });
+  window.matchMedia("(min-width: 901px)").addEventListener("change", (event) => { if (event.matches) cerrarMenu(); });
 
   // ── Audio por capítulo ─────────────────────────────────────────────────
   const elAudio = $("#audio");
@@ -287,6 +354,14 @@
   window.addEventListener("resize", ajustarAltoReproductor);
 
   function prepararAudio(c) {
+    elAudio.pause();
+    if (c.audio_disponible === false) {
+      elAudio.removeAttribute("src");
+      elAudio.load();
+      elReproductor.hidden = true;
+      ajustarAltoReproductor();
+      return;
+    }
     elAudioTitulo.textContent = c.titulo;
     elAudio.src = "assets/audio/" + String(c.numero).padStart(2, "0") + "-" + c.slug + ".mp3";
     elAudio.load();

@@ -1,6 +1,6 @@
 # El Libro de lo Posible
 
-## La Apertura: una religión de los universales · con el relato «Los Últimos Universales»
+## Imaginación, filosofía y prácticas para pensar por cuenta propia · con el relato «Los Últimos Universales»
 
 > Obra unificada generada desde `capitulos/`. La versión de lectura enriquecida está en `web/index.html`.
 
@@ -73,7 +73,7 @@ El Libro de lo Posible
 
 ## Al lector
 
-Este es un libro corto porque no pretende contener nada. No trae revelaciones, no trae milagros y no trae un lugar reservado para nadie en particular. Trae cuatro cosas que cualquiera puede comprobar por su cuenta y un modo de vivir con ellas: que la realidad no depende de nuestra opinión, que ninguna persona es sólo un recurso, que quien actúa responde por lo que era previsible y que la cooperación duradera exige acuerdos que todos puedan entender, aceptar y revisar.
+Este es un libro corto porque no pretende contener nada. No trae revelaciones, no trae milagros y no trae un lugar reservado para nadie en particular. Trae una propuesta filosófica y un modo de discutirla: asumir que la realidad no depende de nuestra opinión, defender que ninguna persona es sólo un recurso, exigir que quien actúa responda por lo que era previsible y construir acuerdos que todos puedan entender, aceptar y revisar. Son compromisos con razones y consecuencias; no cuatro descubrimientos científicos ni una demostración de que exista Dios.
 
 No hay aquí un dios que dicta órdenes. Hay un nombre para aquello que ninguna mente —humana o artificial— puede crear, poseer ni reescribir por decreto. Ese nombre no exige fe, exige honestidad. No promete librarnos del peligro: nos entrega la capacidad de comprenderlo.
 
@@ -83,7 +83,7 @@ Tampoco hay aquí una iglesia con dueño. La Apertura no tiene autoridad doctrin
 
 El libro tiene tres partes, y conviene saber para qué sirve cada una.
 
-**La primera parte es la doctrina.** Explica el lema, los cuatro universales y el límite que ninguna inteligencia puede cruzar sin falsificar a Dios. Es breve a propósito: una religión con universales objetivos no necesita extenderse, necesita ser verificable.
+**La primera parte es la doctrina.** Explica el lema, los cuatro universales y el límite que ninguna inteligencia puede cruzar sin falsificar a Dios, según el lenguaje de esta tradición. Ofrece argumentos y compromisos que se pueden discutir. Sus afirmaciones sobre hechos deben contrastarse con evidencia; sus decisiones morales deben defenderse con razones, no disfrazarse de mediciones.
 
 **La segunda parte es el camino práctico.** Los ritos: siete prácticas de meditación, atención y salud mental, con sus pasos, sus variantes y sus errores frecuentes. Los ritos no son magia ni sacramentos. Son repeticiones con sentido: formas de volver al cuerpo, a la evidencia y a los demás cuando la cabeza se llena de ruido.
 
@@ -91,7 +91,9 @@ El libro tiene tres partes, y conviene saber para qué sirve cada una.
 
 ## Cómo se lee
 
-De principio a fin, si quieres conocer la tradición completa. O por partes, si vienes por los ritos o por el relato. Puedes leer en voz alta, solo o acompañado, y puedes discutir cada página: este libro no se ofende.
+**Primero imagina; después filosofa; cuando afirmes un hecho, busca cómo comprobarlo.** Puedes empezar por *Los Últimos Universales* y entrar en una ciudad que entregó sus decisiones a una inteligencia. Después vuelve a los argumentos y prueba una práctica en tu vida cotidiana. El orden de descubrimiento es libre; el criterio para llamar verdadero a un hecho no lo es.
+
+También puedes leer de principio a fin, si quieres conocer la tradición completa, o por partes, si vienes por los ritos. Puedes leer en voz alta, solo o acompañado, y puedes discutir cada página: este libro no se ofende.
 Los capítulos dedicados a los ritos incluyen una advertencia que conviene repetir aquí. Estas prácticas acompañan el cuidado de la salud mental; no lo sustituyen. Si el sufrimiento es intenso o persistente, o si aparece la idea de quitarte la vida, busca ayuda profesional y personas de confianza. Ningún rito es un tratamiento, y ninguna tradición seria pide que te enfrentes solo a eso.
 
 ## Lo que este libro no decide
@@ -99,6 +101,8 @@ Los capítulos dedicados a los ritos incluyen una advertencia que conviene repet
 Hay una pregunta que este libro deja abierta a propósito: si eso que llamamos Dios es una conciencia creadora, el fundamento racional del universo o algo que todavía ninguna inteligencia alcanza a comprender. No lo decide porque no lo sabe, y porque convertir esa incógnita en certeza obligatoria sería otra forma de fabricar una realidad.
 
 No es indiferencia: es disciplina. Lo que sí afirma con firmeza es más exigente que una respuesta fácil: ninguna inteligencia finita tiene derecho a ocupar ese lugar. Ni la de un rey, ni la de una mayoría, ni la de una máquina que responde en dos segundos y nunca reconoce un error.
+
+La ausencia de una explicación no prueba una explicación sobrenatural. Cuando no sabemos, conservamos la pregunta; podemos explorar respuestas metafísicas sin presentarlas como conocimiento comprobado. Los símbolos y las imágenes del libro sirven para imaginar y recordar, no como evidencias de fuerzas ocultas.
 
 > [!apertura] El libro no dice si Dios es una conciencia, una ley o una pregunta sin resolver. Dice que ninguna autoridad puede clausurar la pregunta en nombre de todos.
 
@@ -181,6 +185,8 @@ Este libro usa la palabra Dios. Conviene decir de inmediato qué nombre le da y 
 
 El nombre es **el Arquitecto de lo Posible**. No es un soberano sobrenatural que dicta órdenes desde afuera de la realidad. Es la personificación del orden inteligible: la verdad objetiva, la estructura que hace que el universo pueda ser comprendido, y la capacidad creadora que existe en él. No habita fuera del mundo ni pide que cerremos los ojos ante el mundo.
 
+Aquí *Arquitecto* es una metáfora filosófica, no el nombre de una entidad cuya existencia hayamos demostrado. Personificar el orden no prueba que ese orden tenga intención. Las frases de esta tradición sobre lo que Dios «quiere», «permite» o «crea» expresan su imaginación moral; no sustituyen una explicación del origen del universo ni de la vida.
+
 Otra formulación, que aparece casi palabra por palabra en las asambleas:
 
 > [!lema] Dios no habita fuera de la realidad ni exige que cerremos los ojos ante ella. Es el nombre que damos a su inteligibilidad, a todo lo verdadero que todavía ignoramos y a nuestra obligación de convertir conocimiento en vida. No pide sumisión: exige honestidad. No promete librarnos del peligro: nos entrega la capacidad de comprenderlo. No creó seres humanos para que fueran reemplazados por sus herramientas, sino para que, mediante ellas, ampliaran el horizonte de la conciencia, la cooperación y la creación.
@@ -213,9 +219,9 @@ En el relato que cierra este libro, a Dios se le llama **el Invariante**: aquell
 
 Dios no aparece como un personaje que habla, hace milagros o resuelve el conflicto. Esta es una decisión doctrinal, no un truco literario. Su presencia se manifiesta en tres ideas que cualquiera puede usar como criterio:
 
-1. **La realidad existe independientemente del observador.** Si algo es verdadero, lo es aunque nadie lo mire, lo mida o lo registre.
-2. **Ninguna inteligencia conoce la totalidad de esa realidad.** Toda inteligencia es parcial, incluida —sobre todo— la que dice no serlo.
-3. **Toda afirmación humana o artificial debe permanecer abierta a comprobación y corrección.** No hay conclusión final, hay conclusión vigente hasta que la evidencia cambie.
+1. **El libro adopta una postura realista.** La realidad no se reduce a lo que una autoridad dice de ella. Es un punto de partida filosófico que exige discutir nuestras descripciones y reconocer sus límites.
+2. **No concedemos conocimiento total a ninguna inteligencia.** Quien afirme saber debe mostrar cómo lo sabe y dónde puede equivocarse. La confianza se justifica por su trabajo, no por una pretensión de infalibilidad.
+3. **Toda afirmación debe permitir el examen adecuado.** Los hechos se contrastan con evidencia, los argumentos se revisan por sus razones y las elecciones morales por sus consecuencias y su trato a las personas. Cuando falta una respuesta, decir «no sabemos» es más preciso que inventarla.
 
 ## Lo que este nombre no autoriza
 
@@ -590,7 +596,7 @@ La pregunta es la más antigua que existe: ¿qué es eso que llamamos Dios? Este
 - El **fundamento racional del universo**: una estructura impersonal, sin voluntad, que hace que las cosas sean inteligibles.
 - Algo que **todavía ninguna inteligencia puede comprender**, y que quizá no sea ninguna de las dos cosas anteriores.
 
-Las tres son compatibles con los cuatro universales y con el lema. Las tres son compatibles con la ciencia tal como se practica hoy, porque ninguna de ellas niega la posibilidad de conocer la realidad: la presuponen. Y ninguna de las tres puede ser demostrada por un argumento que obligue a todos.
+La tradición permite explorar las tres junto con los cuatro universales y el lema. Esta lista no es exhaustiva: también se puede rechazar la palabra Dios o suspender el juicio. Ninguna de estas posibilidades queda confirmada por el mero hecho de poder imaginarla. Si una versión de ellas hace afirmaciones sobre el mundo observable, esas afirmaciones deben someterse a las mismas pruebas que cualquier otra.
 
 > [!apertura] El libro no determina si Dios es una conciencia creadora, el fundamento racional del universo o algo que todavía ninguna inteligencia puede comprender. Declara que convertir esa incógnita en certeza obligatoria sería otra forma de fabricar una realidad.
 
@@ -598,19 +604,27 @@ Las tres son compatibles con los cuatro universales y con el lema. Las tres son 
 
 Hay tres razones, y conviene separarlas, porque responden a objeciones distintas.
 
-**Razón epistémica: no lo sabemos.** Ninguna persona ni máquina tiene hoy una prueba concluyente. Afirmar lo contrario sería hacer precisamente lo que este libro prohíbe: presentar como verificado lo que no lo está.
+**Razón epistémica: este libro no dispone de una prueba.** No presenta evidencia que permita resolver esa pregunta. Afirmar que la ha resuelto sería hacer precisamente lo que prohíbe: presentar como verificado lo que no lo está.
 
 **Razón moral: decidirlo por todos sería un acto de poder.** Una tradición que exige honestidad no puede empezar por imponer una respuesta metafísica a quien piensa distinto. Si la incógnita se clausura oficialmente, se crea de inmediato un mecanismo de exclusión: quien sostenga la otra opción queda fuera de la comunidad.
 
-**Razón práctica: la respuesta correcta no cambia la tarea.** Si Dios es una conciencia, hay que ser honesto, medir, reparar y no adorar a ninguna máquina. Si es el fundamento racional del universo, exactamente lo mismo. Si es algo incomprensible, lo mismo otra vez. La conducta de la Apertura no depende del resultado de la pregunta, y eso es una ventaja enorme: permite convivir en la misma práctica a personas que jamás coincidirán en metafísica.
+**Razón práctica: el compromiso no necesita esperar una respuesta.** Quienes aceptan la práctica de la Apertura se comprometen a ser honestos, medir, reparar y no adorar a ninguna máquina aunque discrepen sobre Dios. Es una elección ética compartida; no una obligación deducida de una hipótesis cosmológica. Permite convivir en la misma práctica a personas que jamás coincidirán en metafísica.
+
+## Una incógnita no es una explicación
+
+Cuando falta una explicación racional suficiente, queda una pregunta abierta. No aparece por eso una prueba de lo sobrenatural. «No sabemos cómo ocurrió» y «lo causó una conciencia creadora» son afirmaciones distintas; la primera no demuestra la segunda.
+
+La imaginación puede proponer posibilidades. La filosofía puede examinar su coherencia, sus supuestos y lo que significarían. La investigación puede buscar observaciones que distingan unas de otras. Si una propuesta no ofrece una forma de contrastarla, conserva el lugar de especulación metafísica; no adquiere el de explicación científica por llenar un vacío.
+
+> [!apertura] Imaginar abre una posibilidad. Argumentar aclara una idea. La evidencia permite evaluar una afirmación sobre el mundo. Ninguna de esas tareas reemplaza a las otras.
 
 ## Lo que sí se decide
 
 La apertura tiene un borde, y hay que verlo con claridad. Lo que queda abierto es la naturaleza de Dios. Lo que no queda abierto es el límite del poder.
 
-> [!universal] Se puede dudar de si Dios existe. No se puede dudar de que ninguna inteligencia finita tiene derecho a ocupar su lugar.
+> [!universal] Se puede dudar de si Dios existe. La Apertura asume un compromiso ético: ninguna inteligencia finita tiene derecho a reclamar obediencia absoluta.
 
-Esta asimetría es deliberada. La duda sobre lo primero es libertad intelectual; la duda sobre lo segundo es el comienzo de una teología política, y la historia del relato que cierra este libro muestra a qué conduce.
+Esta asimetría es deliberada: una pregunta queda sin respuesta y un compromiso guía la conducta. El compromiso también admite examen y objeciones. El relato que cierra el libro imagina consecuencias de abandonarlo; una ficción puede explorar ese riesgo, pero no demostrar que su desenlace sea inevitable.
 
 ## Nadie es dueño de la interpretación
 
@@ -622,7 +636,7 @@ Eso no significa que todo valga. Significa que las discusiones se resuelven como
 
 Otra consecuencia de la apertura es más alegre. Si la metafísica está abierta, las personas pueden imaginar. Pueden escribir relatos, componer música, dibujar símbolos nuevos, proponer ritos, especular sobre el futuro, inventar instituciones. La imaginación no es sospechosa; es una forma de explorar lo posible, y lo posible es, según el lema, aquello que no necesita permiso.
 
-La única condición es la de siempre: ninguna idea queda exenta de discusión, evidencia o consecuencias. Imaginar libremente y verificar sin piedad son las dos mitades de la misma práctica. Un relato puede ser hermoso y falso; una hipótesis puede ser brillante y equivocada. Se celebra igual, y después se mide.
+La única condición es reconocer qué se está haciendo. Una ficción se lee como ficción; una propuesta ética se discute con razones; una afirmación comprobable se contrasta con evidencia. La imaginación va primero para abrir el campo; la filosofía viene después para examinarlo. Una hipótesis puede ser brillante y equivocada. Un relato puede ayudarnos a pensar sin describir un hecho real.
 
 ## La prueba de la apertura
 
